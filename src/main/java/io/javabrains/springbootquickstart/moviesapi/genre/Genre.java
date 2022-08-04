@@ -1,24 +1,29 @@
 package io.javabrains.springbootquickstart.moviesapi.genre;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="GENRE")
 public class Genre {
-    private String id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String name;
 
     public Genre(){
 
     }
 
-    public Genre(String id, String name){
-        super();
+    public Genre(Long id, String name) {
         this.id = id;
-        this.name =name;
+        this.name = name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
