@@ -28,13 +28,11 @@ public class GenreController {
     public Genre addGenre(@Validated @RequestBody Genre g){
         return this.genreService.addGenre(g);
     }
-    /*
-    @GetMapping("/genres/{name}")
+
+    @GetMapping("/genres/name={name}")
     public Optional<Genre> getGenreByName(@PathVariable("name") String name){
         return this.genreService.getGenreByName(name);
     }
-
-     */
 
     @PutMapping("/genres/{id}")
     public Genre updateGenre(@Validated @RequestBody Genre g, @PathVariable("id") Long id){

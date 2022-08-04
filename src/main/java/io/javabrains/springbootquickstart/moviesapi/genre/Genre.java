@@ -13,8 +13,8 @@ public class Genre {
     public Genre(){
 
     }
-
     public Genre(Long id, String name) {
+        super();
         this.id = id;
         this.name = name;
     }
