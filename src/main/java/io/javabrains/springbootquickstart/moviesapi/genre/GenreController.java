@@ -1,11 +1,8 @@
 package io.javabrains.springbootquickstart.moviesapi.genre;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +22,27 @@ public class GenreController {
     @GetMapping("/genres/{id}")
     public Optional<Genre> getGenreById(@PathVariable("id") Long id){
         return this.genreService.getGenreById(id);
+    }
+
+    @PostMapping("/genres")
+    public Genre addGenre(@Validated @RequestBody Genre g){
+        return this.genreService.addGenre(g);
+    }
+    /*
+    @GetMapping("/genres/{name}")
+    public Optional<Genre> getGenreByName(@PathVariable("name") String name){
+        return this.genreService.getGenreByName(name);
+    }
+
+     */
+
+    @PutMapping("/genres/{id}")
+    public Genre updateGenre(@Validated @RequestBody Genre g, @PathVariable("id") Long id){
+        return this.genreService.updateGenre(g,id);
+    }
+
+    @DeleteMapping("/genres/{id}")
+    public void deleteGenre(@PathVariable("id") Long id){
+        this.genreService.delete(id);
     }
 }

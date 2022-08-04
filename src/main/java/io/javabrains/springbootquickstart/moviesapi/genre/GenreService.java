@@ -21,6 +21,13 @@ public class GenreService {
         return this.genreRepository.findById(id);
     }
 
+    public Optional<Genre> getGenreByName(String name){
+        return this.genreRepository.findByName(name);
+    }
+
+    public Genre addGenre(Genre g){
+        return this.genreRepository.save(g);
+    }
     public Genre updateGenre(Genre g, Long id){
         return this.genreRepository.findById(id).
                 map(genre -> {
