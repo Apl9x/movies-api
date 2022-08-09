@@ -14,7 +14,7 @@ class GenreRepositoryTest {
     private GenreRepository underTest;
 
     @Test
-    void    itShouldFindByName() {
+    void    canFindByName() {
         //Arrange
         String name = "Horror";
 

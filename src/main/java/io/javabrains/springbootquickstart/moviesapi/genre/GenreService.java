@@ -1,5 +1,6 @@
 package io.javabrains.springbootquickstart.moviesapi.genre;
 
+import io.javabrains.springbootquickstart.moviesapi.exception.GenreNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,10 @@ public class GenreService {
     }
 
     public void delete(Long id){
+        if(!genreRepository.existsById(id)){
+            throw new GenreNotFoundException(
+                    "Genre with id: "+id + " does not exists");
+        }
         this.genreRepository.deleteById(id);
     }
 }

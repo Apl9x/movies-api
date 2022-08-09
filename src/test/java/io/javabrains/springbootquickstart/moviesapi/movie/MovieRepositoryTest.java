@@ -12,7 +12,7 @@ class MovieRepositoryTest {
     private MovieRepository underTest;
 
     @Test
-    void findByName() {
+    void canFindByName() {
         //Arrange
         String name = "Shrek";
 
@@ -24,7 +24,7 @@ class MovieRepositoryTest {
     }
 
     @Test
-    void findByGenreName() {
+    void canFindByGenreName() {
         //Arrange
         String name = "Horror";
 
