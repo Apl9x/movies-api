@@ -1,19 +1,15 @@
 package io.javabrains.springbootquickstart.moviesapi.movie;
 
-import io.javabrains.springbootquickstart.moviesapi.genre.GenreRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class MovieService {
     private MovieRepository movieRepository;
-    private GenreRepository genreRepository;
-
-    public MovieService(MovieRepository movieRepository) {
-        this.movieRepository = movieRepository;
-    }
 
     public List<Movie> getAllMovies(){
         return (List<Movie>) this.movieRepository.findAll();
