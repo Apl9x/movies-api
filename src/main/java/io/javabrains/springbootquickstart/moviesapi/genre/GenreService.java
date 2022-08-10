@@ -1,6 +1,6 @@
 package io.javabrains.springbootquickstart.moviesapi.genre;
 
-import io.javabrains.springbootquickstart.moviesapi.exception.GenreNotFoundException;
+import io.javabrains.springbootquickstart.moviesapi.exception.CustomNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +41,7 @@ public class GenreService {
 
     public void delete(Long id){
         if(!genreRepository.existsById(id)){
-            throw new GenreNotFoundException(
+            throw new CustomNotFoundException(
                     "Genre with id: "+id + " does not exists");
         }
         this.genreRepository.deleteById(id);

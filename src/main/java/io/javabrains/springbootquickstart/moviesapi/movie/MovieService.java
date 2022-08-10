@@ -1,5 +1,6 @@
 package io.javabrains.springbootquickstart.moviesapi.movie;
 
+import io.javabrains.springbootquickstart.moviesapi.exception.CustomNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +28,10 @@ public class MovieService {
         return this.movieRepository.findByGenreName(name);
     }
 
-    public Movie addGenre(Movie g){
+    public Movie addMovie(Movie g){
         return this.movieRepository.save(g);
     }
-    public Movie updateGenre(Movie m, Long id){
+    public Movie updateMovie(Movie m, Long id){
         return this.movieRepository.findById(id).
                 map(movie -> {
                     movie.setId(id);
@@ -45,6 +46,10 @@ public class MovieService {
     }
 
     public void delete(Long id){
+        if(!movieRepository.existsById(id)){
+            throw new CustomNotFoundException(
+                    "Movie with id: "+id + " does not exists");
+        }
         this.movieRepository.deleteById(id);
     }
 }

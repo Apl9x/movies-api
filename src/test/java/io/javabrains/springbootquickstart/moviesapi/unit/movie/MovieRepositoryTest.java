@@ -1,5 +1,6 @@
-package io.javabrains.springbootquickstart.moviesapi.movie;
+package io.javabrains.springbootquickstart.moviesapi.unit.movie;
 
+import io.javabrains.springbootquickstart.moviesapi.movie.MovieRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

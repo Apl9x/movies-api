@@ -36,12 +36,12 @@ public class MovieController {
     @PostMapping("/movies")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Movie addGenre(@Validated @RequestBody Movie g){
-        return this.movieService.addGenre(g);
+        return this.movieService.addMovie(g);
     }
 
     @PutMapping(value = "/movies", params = "id")
     public Movie updateGenre(@Validated @RequestBody Movie g, @RequestParam Long id){
-        return this.movieService.updateGenre(g,id);
+        return this.movieService.updateMovie(g,id);
     }
 
     @DeleteMapping(value = "/movies", params = "id")

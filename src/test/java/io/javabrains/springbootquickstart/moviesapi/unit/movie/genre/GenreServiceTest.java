@@ -1,16 +1,15 @@
-package io.javabrains.springbootquickstart.moviesapi.genre;
+package io.javabrains.springbootquickstart.moviesapi.unit.movie.genre;
 
-import com.sun.org.apache.xpath.internal.Arg;
-import io.javabrains.springbootquickstart.moviesapi.exception.GenreNotFoundException;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+import io.javabrains.springbootquickstart.moviesapi.exception.CustomNotFoundException;
+import io.javabrains.springbootquickstart.moviesapi.genre.Genre;
+import io.javabrains.springbootquickstart.moviesapi.genre.GenreRepository;
+import io.javabrains.springbootquickstart.moviesapi.genre.GenreService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
@@ -112,7 +111,7 @@ class GenreServiceTest {
         //Act
         //Assert
         assertThatThrownBy(()->underTest.delete(id))
-                .isInstanceOf(GenreNotFoundException.class)
+                .isInstanceOf(CustomNotFoundException.class)
                         .hasMessageContaining("Genre with id: "+id + " does not exists");
         verify(genreRepository,never()).deleteById(any());
     }
