@@ -1,4 +1,4 @@
-package io.javabrains.springbootquickstart.moviesapi.unit.movie.genre;
+package io.javabrains.springbootquickstart.moviesapi.unit.genre;
 
 import io.javabrains.springbootquickstart.moviesapi.genre.GenreRepository;
 import org.junit.jupiter.api.Test;

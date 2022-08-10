@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class movieControllerTest {
+class MovieControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
